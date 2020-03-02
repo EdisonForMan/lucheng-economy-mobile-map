@@ -1,0 +1,30 @@
+{
+  "id": "1572905",
+  "name": "lucheng_mobile",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "526001",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "4524403",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "7674905",
+      "name": "提示",
+      "font_class": "tishi",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    }
+  ]
+}

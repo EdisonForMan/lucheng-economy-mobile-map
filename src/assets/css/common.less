@@ -1,0 +1,244 @@
+html,
+body {
+    margin : 0px;
+    padding: 0px;
+    height : 100%;
+
+    #app {
+        font-family            : "Avenir", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing : antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align             : center;
+        color                  : #2c3e50;
+        width                  : 100%;
+        overflow               : hidden;
+        height                 : 100%;
+    }
+}
+
+.ant-btn {
+    background-color: #3b83ee !important;
+    border-color    : #3b83ee !important;
+    color           : #fff !important;
+}
+
+.ant-tree {
+    li {
+        ul {
+            padding-left: 10px !important;
+        }
+    }
+
+    .ant-tree-switcher {
+        width: 20px !important;
+    }
+}
+
+.container {
+    flex    : 1;
+    position: relative;
+
+    .spin {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        position  : absolute;
+        height    : 100%;
+        width     : 100%;
+        top       : 0;
+        z-index   : 2;
+
+        .ant-spin {
+            color    : #fff;
+            position : absolute;
+            width    : auto;
+            top      : 50%;
+            transform: translate(-100%, -50%);
+        }
+    }
+}
+
+// 默认头部样式
+.header {
+    height          : 40px;
+    line-height     : 40px;
+    width           : 100%;
+    z-index         : 2;
+    font-weight     : bold;
+    font-size       : 16px;
+    background-color: #3b83ee;
+    color           : #fff;
+
+    .iconfanhui {
+        position: absolute;
+        left    : 10px;
+    }
+
+    .clearLayer {
+        position   : absolute;
+        display    : block;
+        line-height: 30px;
+        right      : 10px;
+        top        : 50px;
+    }
+
+    .noFloat {
+        right           : 4px !important;
+        top             : 5px !important;
+        color           : #fff !important;
+        background-color: #3b83ee !important;
+    }
+
+    .mapStyle {
+        position        : absolute;
+        display         : block;
+        line-height     : 30px;
+        right           : 10px;
+        top             : 50px;
+        background-color: #fff;
+        padding         : 0 10px;
+        border-radius   : 6px;
+        font-weight     : 500;
+        font-size       : 14px;
+        z-index         : 1;
+
+        .dropdown-toggle {
+            padding         : 0px 6px !important;
+            line-height     : 30px !important;
+            background-color: #fff;
+            color           : #000;
+        }
+
+        .dropdown-menu {
+            width: 100px;
+
+            >li {
+                box-sizing  : border-box;
+                padding-left: 10px;
+                width       : 100px;
+            }
+        }
+    }
+}
+
+.esri-ui {
+    .esri-ui-bottom-right {
+        display: none;
+    }
+
+    .esri-attribution {
+        display: none !important;
+    }
+
+    .esri-popup--is-docked-bottom-center {
+        // margin: 16px !important;
+    }
+
+    .esri-popup {
+        .esri-popup__main-container:before {
+            display: none;
+        }
+
+        .esri-popup__footer {
+            display: none;
+        }
+
+        .esri-popup__feature-menu {
+            display: none;
+        }
+
+        .esri-popup__content {
+            max-height: 160px;
+
+            ._pop {
+                >div {
+                    text-align : left;
+                    height     : 25px;
+                    line-height: 25px;
+                }
+
+                ._pop_title {
+                    line-height  : 32px;
+                    height       : 32px;
+                    font-size    : 16px;
+                    overflow     : hidden;
+                    padding-right: 20px;
+                }
+
+                .baidu_around {
+                    padding   : 6px 0;
+                    border-top: 1px #dedede solid;
+                    height    : auto;
+                    font-size : 14px;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    ul {
+                        list-style  : none;
+                        padding-left: 10px;
+                        margin      : 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mapboxgl-map {
+    .mapboxgl-popup {
+        z-index: 2;
+
+        .mapboxgl-popup-content {
+            min-width  : 240px;
+            max-width  : 300px;
+            padding    : 10px;
+            padding-top: 2px;
+
+            .mapboxgl-popup-close-button {
+                font-size : 22px;
+                margin-top: 6px;
+            }
+
+            ._pop::-webkit-scrollbar {
+                display: none;
+            }
+
+            ._pop {
+                max-height: 200px;
+                overflow-y: auto;
+
+                >div {
+                    text-align : left;
+                    height     : 25px;
+                    line-height: 25px;
+                }
+
+                ._pop_title {
+                    line-height  : 32px;
+                    height       : 32px;
+                    font-size    : 16px;
+                    overflow     : hidden;
+                    padding-right: 20px;
+                }
+
+                .baidu_around {
+                    padding   : 6px 0;
+                    border-top: 1px #dedede solid;
+                    height    : auto;
+                    font-size : 14px;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    ul {
+                        list-style  : none;
+                        padding-left: 10px;
+                        margin      : 0px;
+                    }
+                }
+            }
+        }
+    }
+}

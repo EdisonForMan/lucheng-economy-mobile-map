@@ -1,0 +1,105 @@
+.layout {
+    display       : flex;
+    flex-direction: column;
+    height        : 100%;
+
+    .container {
+        position: relative;
+
+        .icontishi {
+            font-size: 28px;
+            position : absolute;
+            left     : 20px;
+            bottom   : 10px;
+            z-index  : 2;
+            color    : #5f5f5f;
+        }
+
+        .iconshanchu {
+            font-size: 28px;
+            position : absolute;
+            right    : 20px;
+            bottom   : 10px;
+            z-index  : 2;
+            color    : #fff;
+        }
+
+        .panel {
+            flex            : 1;
+            text-align      : left;
+            background-color: #fff;
+            border-radius   : 8px;
+            height          : 100%;
+            width           : 100%;
+
+            >* {
+                display: block;
+                margin : 0px !important;
+            }
+
+            .ant-checkbox-wrapper {
+                top      : 56px;
+                left     : 10px;
+                position : absolute;
+                z-index  : 2;
+                font-size: 16px;
+                color    : #fff;
+            }
+
+            .ant-btn {
+                height     : 34px;
+                line-height: 34px;
+                top        : 10px;
+                left       : 10px;
+                position   : absolute;
+                font-size  : 16px;
+                z-index    : 2;
+                padding    : 0px 8px;
+                width      : 80px;
+            }
+
+            .clearLayer {
+                left : 100px;
+                width: 100px;
+            }
+
+            .title {
+                position        : absolute;
+                right           : 10px;
+                top             : 10px;
+                font-size       : 16px;
+                z-index         : 2;
+                height          : 34px;
+                line-height     : 34px;
+                font-weight     : 700;
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+
+            .set3d {
+                left : unset;
+                right: 10x;
+                width: 72px;
+            }
+        }
+    }
+
+    .ant-btn {
+        height      : 40px;
+        line-height : 40px;
+        right       : 10px;
+        margin-top  : 10px !important;
+        position    : absolute;
+        // transform: rotate(90deg);
+        z-index     : 2;
+    }
+
+    .toMap {
+        * {
+            vertical-align: top;
+        }
+
+        .icon-ditu {
+            font-size: 24px;
+        }
+    }
+}
