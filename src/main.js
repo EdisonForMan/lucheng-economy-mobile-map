@@ -63,11 +63,11 @@ window.addEventListener("message", ({ data }) => {
   data && data instanceof Object && data.mode && window.getParamsInitMap(data);
 });
 
-// window.postMessage(
-//   {
-//     value: "七都科技文化中心",
-//     mode: "polygon",
-//     table: "u_zsdkm"
-//   },
-//   "*"
-// );
+window.postMessage(
+  {
+    value: "七都科技文化中心",
+    mode: "polygon",
+    table: "u_zsdkm"
+  },
+  "*"
+);

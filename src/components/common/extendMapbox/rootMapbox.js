@@ -7,19 +7,38 @@
 import { rootSources } from "./rootSource";
 import { mapMutations } from "vuex";
 import { rootTool } from "./rootTools";
-import { MAPBOXLAYER } from "@/components/common/config";
+import { MAPBOXLAYER, MAPBOXLAYER_WHITE } from "@/components/common/config";
+import ZW_JSON from "./street_zw";
 const _CENTER_ = [120.66052090621764, 28.010845855663625];
 const _ZOOM_ = 11;
-const _MINZOOM_ = 9;
-const _MAXZOOM_ = 15;
+const _MINZOOM_ = 6;
+const _MAXZOOM_ = 18;
 const _MAPBOX_OPTION_ = {
   center: _CENTER_,
   zoom: _ZOOM_,
   minZoom: _MINZOOM_,
-  maxZoom: _MAXZOOM_
+  maxZoom: _MAXZOOM_,
+  renderWorldCopies: false,
+  repaint: true,
+  trackResize: true,
+  attributionControl: false,
+  transformRequest: (url, resourceType) => {
+    if (resourceType === "Tile") {
+      url += `&domain=www.zjditu.cn`;
+      if (url.includes("{key}")) {
+        return {
+          url: url.replace("{key}", "85b88ce10c15f390ee75bf571688b3b7")
+        };
+      }
+      if (url.includes("{tdtcode}")) {
+        return {
+          url: url.replace("{tdtcode}", "zhejiang")
+        };
+      }
+    }
+  }
 };
-const _MAP_ = `${MAPBOXLAYER}/WMTS/tile/1.0.0/MyM/default/default028mm/{z}/{y}/{x}.png`;
-
+const _MAP_ = `${MAPBOXLAYER_WHITE}/WMTS/tile/1.0.0/MyM/default/default028mm/{z}/{y}/{x}.png`;
 export default {
   name: "rootMapbox",
   data: () => {
@@ -41,29 +60,16 @@ export default {
         this.map = new mapboxgl.Map({
           container: "mapbox",
           ..._MAPBOX_OPTION_,
-          style: {
-            version: 8,
-            name: "map",
-            glyphs: "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
-            sources: {
-              "raster-tiles": {
-                type: "raster",
-                tiles: [_MAP_],
-                tileSize: 256
-              }
-            },
-            layers: [
-              {
-                id: "map",
-                type: "raster",
-                source: "raster-tiles"
-              }
-            ]
-          }
+          style: ZW_JSON
         });
+        this.map.addControl(
+          new mapboxgl.NavigationControl({ visualizePitch: true }),
+          "bottom-right"
+        );
         this.map.on("style.load", () => {
+          // this.map.setStyle(ZW_JSON, { diff: false });
           this.updateLoading(false);
-          fn && fn()
+          fn && fn();
           return resolve(true);
         });
       });

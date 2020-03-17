@@ -218,10 +218,10 @@ export const mapboxChangeAreas = (_context_, tag) => {
     _context_.map.getLayer("zonePolygon") &&
       _context_.map.removeLayer("zonePolygon");
   } else {
-    addLine(_context_);
+    // addLine(_context_);
     addAreas(_context_);
-    addZones(_context_);
-    addZonePolygon(_context_);
+    // addZones(_context_);
+    // addZonePolygon(_context_);
   }
 };
 
@@ -240,7 +240,7 @@ const eventAdd = _context_ => {
  */
 export const initTool = _context_ => {
   return new Promise((resolve, reject) => {
-    addPlate(_context_);
+    // addPlate(_context_);
     mapboxChangeAreas(_context_, true);
     eventAdd(_context_);
     resolve(true);

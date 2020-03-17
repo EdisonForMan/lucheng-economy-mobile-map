@@ -23,8 +23,8 @@ export default {
   },
   async mounted() {
     await this.initRoot();
-    await sources(this);
-    this.$params && (await registeHit(this));
+    // await sources(this);
+    // this.$params && (await registeHit(this));
   },
   methods: {
     ...mapMutations(["updateLoading"]),
