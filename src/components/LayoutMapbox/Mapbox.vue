@@ -7,7 +7,7 @@
 import { mapState, mapMutations, mapActions } from "vuex";
 import { CYBJ } from "@/components/common/config";
 import { sources } from "./sources";
-import { initTool, heat, mapboxChangeAreas, mapboxChangeHeat } from "./tools";
+import { initTool } from "./tools";
 import rootMapBox from "@/components/common/extendMapbox/rootMapbox";
 
 export default {

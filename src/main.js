@@ -32,7 +32,7 @@ Vue.use(Tooltip);
 Vue.config.productionTip = false;
 window.mapboxgl.accessToken = MAPBOXTOKEN;
 Vue.prototype.$mapboxgl = window.mapboxgl;
-Vue.prototype.$bGeo = new window.BMap.Geocoder();
+// Vue.prototype.$bGeo = new window.BMap.Geocoder();
 Vue.prototype.$util = util;
 Vue.prototype.$tools = tools;
 /**
@@ -63,11 +63,4 @@ window.addEventListener("message", ({ data }) => {
   data && data instanceof Object && data.mode && window.getParamsInitMap(data);
 });
 
-window.postMessage(
-  {
-    value: "七都科技文化中心",
-    mode: "polygon",
-    table: "u_zsdkm"
-  },
-  "*"
-);
+window.postMessage({ mode: "layout" }, "*");

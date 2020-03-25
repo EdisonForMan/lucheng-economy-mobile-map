@@ -38,7 +38,6 @@ const _MAPBOX_OPTION_ = {
     }
   }
 };
-const _MAP_ = `${MAPBOXLAYER_WHITE}/WMTS/tile/1.0.0/MyM/default/default028mm/{z}/{y}/{x}.png`;
 export default {
   name: "rootMapbox",
   data: () => {
@@ -62,10 +61,6 @@ export default {
           ..._MAPBOX_OPTION_,
           style: ZW_JSON
         });
-        this.map.addControl(
-          new mapboxgl.NavigationControl({ visualizePitch: true }),
-          "bottom-right"
-        );
         this.map.on("style.load", () => {
           // this.map.setStyle(ZW_JSON, { diff: false });
           this.updateLoading(false);

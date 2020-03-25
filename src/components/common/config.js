@@ -112,6 +112,7 @@ export const MAPBOXLAYER_WHITE = `${FORWARD_HOST}/lcjjdt/LCDT1115/MapServer`;
 //  mapbox token
 export const MAPBOXTOKEN =
   "pk.eyJ1IjoiZWRzaW9uc2hhbyIsImEiOiJjazRjM2FlN3EwZnVmM2twYjI0M3c5b2Z2In0.qnKMOhKLGmHbmQzhWb81Lg";
+export const _MAP_ = `${MAPBOXLAYER_WHITE}/WMTS/tile/1.0.0/MyM/default/default028mm/{z}/{y}/{x}.png`;
 //  天地图-大数据
 export const TDTDSJ =
   window.env == "outside"

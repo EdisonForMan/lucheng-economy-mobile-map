@@ -69,78 +69,9 @@ const addPulsingDot = (_context_, shallZones) => {
  */
 export const sources = _context_ => {
   return new Promise((resolve, reject) => {
-    _context_.map.addSource("lines", { type: "geojson", data: LINE }); // 一带
-    _context_.map.addSource("plate", {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: CYBK.features.map(({ geometry, properties }) => {
-          return {
-            type: "Feature",
-            geometry,
-            properties: {
-              ...properties,
-              color: BKLX[properties.FNAME]
-            }
-          };
-        })
-      }
-    }); // 产业板块
-    _context_.map.addSource("areas", {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: _context_.areas.map(({ geometry, attributes }) => {
-          const { x, y } = geometry;
-          return {
-            type: "Feature",
-            geometry: {
-              type: "Point",
-              coordinates: [x, y]
-            },
-            properties: attributes
-          };
-        })
-      }
-    }); // 七区
-    _context_.map.addSource("zones", {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: _context_.zones.map(({ geometry, attributes }) => {
-          const { x, y } = geometry;
-          return {
-            type: "Feature",
-            geometry: {
-              type: "Point",
-              coordinates: [x, y]
-            },
-            properties: attributes
-          };
-        })
-      }
-    }); // 一园
-    _context_.map.addSource("zonePolygon", {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: [
-          {
-            type: "Feature",
-            geometry: {
-              type: "Polygon",
-              coordinates: _context_.zonePolygon[0].geometry.rings
-            }
-          }
-        ]
-      }
-    }); // 一园面
     _context_.map.addImage("areas-dot", addPulsingDot(_context_), {
       pixelRatio: 2
-    }); //  七区样式
-    _context_.map.addImage("zones-dot", addPulsingDot(_context_, true), {
-      pixelRatio: 2
-    }); //  一园样式
+    }); //  楼宇点样式
     resolve(true);
   });
 };
