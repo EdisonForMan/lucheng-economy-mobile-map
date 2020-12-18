@@ -3,7 +3,7 @@
 import {
   OPTION,
   MAPBOXLAYER,
-  MAPBOXLAYER_WHITE
+  MAPBOXLAYER_WHITE,
 } from "@/components/common/config";
 import { styleHash } from "@/components/common/tableHash";
 // import { loadModules } from "esri-loader";
@@ -63,7 +63,9 @@ const mapboxPop = (_context_, properties, { coordinates }) => {
             }</span></div>
       </li>`;
           })
-          .join("")}</ul></div>
+          .join("")}</ul><a class="Amap_jump" data-val="${
+        properties[s_key]
+      }" href="javascript:">高德导航</a></div>
       </div>`
     )
     .setMaxWidth("300px")
@@ -82,10 +84,10 @@ const switchMapboxStyle = (map, val) => {
         tiles: [
           `${
             val == "简约风" ? MAPBOXLAYER : MAPBOXLAYER_WHITE
-          }/WMTS/tile/1.0.0/MyM/default/default028mm/{z}/{y}/{x}.png`
-        ]
-      }
-    }
+          }/WMTS/tile/1.0.0/MyM/default/default028mm/{z}/{y}/{x}.png`,
+        ],
+      },
+    },
   });
 };
 
@@ -115,5 +117,5 @@ export default {
   // switchStyle,
   mapboxPop,
   switchMapboxStyle,
-  clone
+  clone,
 };

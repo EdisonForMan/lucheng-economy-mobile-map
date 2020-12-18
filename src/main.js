@@ -12,7 +12,7 @@ import {
   Checkbox,
   Tag,
   Tree,
-  Tooltip
+  Tooltip,
 } from "ant-design-vue";
 import util from "./components/common/util";
 import tools from "./components/common/tools";
@@ -49,7 +49,7 @@ const getParamsInitMap = params => {
   window._vue_ = new Vue({
     router,
     store,
-    render: h => h(App)
+    render: h => h(App),
   }).$mount("#app");
 };
 window.getParamsInitMap = getParamsInitMap;
@@ -63,11 +63,42 @@ window.addEventListener("message", ({ data }) => {
   data && data instanceof Object && data.mode && window.getParamsInitMap(data);
 });
 
-// window.postMessage(
-//   {
-//     value: "七都科技文化中心",
-//     mode: "polygon",
-//     table: "u_zsdkm"
-//   },
-//   "*"
-// );
+window.postMessage(
+  {
+    value: "七都科技文化中心",
+    mode: "polygon",
+    table: "u_zsdkm",
+  },
+  "*"
+);
+
+// /**
+//  * 空间查询函数
+//  * @param {*} drawGeometryArgs 查询传入几何体对象
+//  * spatialQueryMode [WITHIN] 返回被搜索图层中完全包含搜索对象的对象
+//  * spatialQueryMode [CONTAIN] 返回被搜索图层中完全被搜索对象包含的对象
+//  */
+// function query(drawGeometryArgs) {
+//   var getFeaturesByGeometryParameters, getFeaturesByGeometryService;
+//   getFeaturesByGeometryParameters = new SuperMap.REST.GetFeaturesByGeometryParameters(
+//     {
+//       datasetNames: ["数据源:数据集"],
+//       toIndex: -1,
+//       spatialQueryMode: SuperMap.REST.SpatialQueryMode.WITHIN,
+//       geometry: drawGeometryArgs,
+//     }
+//   );
+//   var url = "数据源地址";
+//   getFeaturesByGeometryService = new SuperMap.REST.GetFeaturesByGeometryService(
+//     url,
+//     {
+//       eventListeners: {
+//         processCompleted: result => {
+//           // code..
+//         },
+//         processFailed: msg => {},
+//       },
+//     }
+//   );
+//   getFeaturesByGeometryService.processAsync(getFeaturesByGeometryParameters);
+// }

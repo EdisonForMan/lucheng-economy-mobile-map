@@ -44,9 +44,9 @@ const createGeoJSONCircle = ([longitude, latitude], km = 1, points = 64) => {
       type: "Feature",
       geometry: {
         type: "Polygon",
-        coordinates: [ret]
-      }
-    }
+        coordinates: [ret],
+      },
+    },
   };
 };
 
@@ -69,8 +69,8 @@ export const switchAround = _context_ => {
     layout: {},
     paint: {
       "fill-color": "rgba(0,0,0,0.1)",
-      "fill-outline-color": "rgba(255, 255, 255, 0.8)"
-    }
+      "fill-outline-color": "rgba(255, 255, 255, 0.8)",
+    },
   });
   fetchAreaPoint(_context_, source.data.geometry.coordinates);
 };
@@ -89,8 +89,8 @@ const fetchAreaPoint = async (_context_, rings) => {
     where: "1=1",
     geometry: JSON.stringify({
       spatialReference: { wkid: 4326 },
-      rings
-    })
+      rings,
+    }),
   });
   const { features } = result.data;
   if (!features.length) return updateLoading(false);
@@ -102,11 +102,11 @@ const fetchAreaPoint = async (_context_, rings) => {
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [geometry.x, geometry.y]
+          coordinates: [geometry.x, geometry.y],
         },
-        properties: attributes
+        properties: attributes,
       };
-    })
+    }),
   };
 
   _context_.map.addLayer({
@@ -114,13 +114,13 @@ const fetchAreaPoint = async (_context_, rings) => {
     type: "symbol",
     source: {
       type: "geojson",
-      data
+      data,
     },
     layout: {
       "icon-image": `_AROUND_${aroundType}_`,
       "icon-size": 0.5,
-      "icon-allow-overlap": true
-    }
+      "icon-allow-overlap": true,
+    },
   });
   eventAdd(_context_, `AROUND_${layerTimeStamp}`);
   updateLoading(false);
@@ -155,18 +155,18 @@ const eventAdd = (_context_, layerId) => {
               type: "Feature",
               geometry: {
                 type: "Point",
-                coordinates: geometry.coordinates
-              }
-            }
-          ]
-        }
+                coordinates: geometry.coordinates,
+              },
+            },
+          ],
+        },
       },
       layout: {
         "icon-image": "_FORCE_LOCATION_",
         "icon-size": 0.3,
         "icon-allow-overlap": true,
-        "icon-offset": [0, -40]
-      }
+        "icon-offset": [0, -40],
+      },
     });
     //  no async/await
     baiduApiFetch(_context_, geometry.coordinates, properties);
@@ -186,7 +186,7 @@ const baiduApiFetch = (_context_, [x, y], obj) => {
     const { address, surroundingPois } = result;
     const mapboxgl = _context_.$mapboxgl;
     _context_.popup = new mapboxgl.Popup({
-      className: "my-class"
+      className: "my-class",
     })
       .setLngLat([x, y])
       .setHTML(
@@ -196,6 +196,8 @@ const baiduApiFetch = (_context_, [x, y], obj) => {
       <div class="_pop_title"><label>类型：</label><span>${
         obj["TYPE"]
       }</span></div>
+      <a class="Amap_jump" data-val="${obj["SHORTNAME"] ||
+        address}" href="javascript:">高德导航</a>
       ${
         surroundingPois.length
           ? `<div class="baidu_around"><p>周边信息</p><ul>${surroundingPois
